@@ -24,56 +24,57 @@ class _OnBoardPageState extends State<OnBoardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
         appBar:isLastPage?AppBar(): AppBar(actions: [
           TextButton(
               onPressed: () => controller.jumpToPage(5),
               child: const Text(
                 'Skip',
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Color.fromARGB(255, 152, 40, 40),
                     fontWeight: FontWeight.w800,
                     fontSize: 22),
               ))
         ]),
-        body: Container(
-          padding: const EdgeInsets.only(bottom: 40),
-          child: PageView(
-            controller: controller,
-            onPageChanged: (index) {
-              setState(() {
-                 isLastPage = index == 5;
-              });
-            },
-            children: const [
-              Skip1(),
-              BuildPage(
-                circleLogo: CircleLogo(title: 'वित्तीय पहुँचता'),
-                style: Style(
-                  title:
-                      'Use learning materials \nfor enhancing your \nFinancial Literacy',
-                ),
-              ),
-              BuildPage(
-                circleLogo: CircleLogo(title: 'वित्तीय सरलता'),
-                style: Style(
-                    title: 'Open or sell all acount \nby using single \nKYC'),
-              ),
-              BuildPage(
-                circleLogo: CircleLogo(title: 'वित्तीय स्वतन्त्रता'),
-                style: Style(
+        body: SafeArea(
+          child: Container(
+            padding: const EdgeInsets.only(bottom: 40),
+            child: PageView(
+              controller: controller,
+              onPageChanged: (index) {
+                setState(() {
+                   isLastPage = index == 5;
+                });
+              },
+              children: const [
+                Skip1(),
+                BuildPage(
+                  circleLogo: CircleLogo(title: 'वित्तीय पहुँचता'),
+                  style: Style(
                     title:
-                        'Start Video KYC \nto avodi obstacles to visiting the Bank'),
-              ),
-              BuildPage(
-                circleLogo: CircleLogo(title: 'वित्तीय जागरुकता'),
-                style: Style(
-                  title: 'Start Earning \nwith hassle-free journey',
+                        'Use learning materials \nfor enhancing your \nFinancial Literacy',
+                  ),
                 ),
-              ),
-              Skip6(),
-            ],
+                BuildPage(
+                  circleLogo: CircleLogo(title: 'वित्तीय सरलता'),
+                  style: Style(
+                      title: 'Open or sell all acount \nby using single \nKYC'),
+                ),
+                BuildPage(
+                  circleLogo: CircleLogo(title: 'वित्तीय स्वतन्त्रता'),
+                  style: Style(
+                      title:
+                          'Start Video KYC \nto avodi obstacles to visiting the Bank'),
+                ),
+                BuildPage(
+                  circleLogo: CircleLogo(title: 'वित्तीय जागरुकता'),
+                  style: Style(
+                    title: 'Start Earning \nwith hassle-free journey',
+                  ),
+                ),
+                Skip6(),
+              ],
+            ),
           ),
         ),
         bottomSheet: SizedBox(
@@ -86,7 +87,6 @@ class _OnBoardPageState extends State<OnBoardPage> {
                 activeDotColor: Color.fromARGB(255, 1, 173, 138)),
           )),
         ),
-      ),
     );
   }
 }
